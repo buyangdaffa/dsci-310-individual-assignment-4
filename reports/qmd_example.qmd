@@ -50,12 +50,13 @@ Suppose we were interested in looking in more closely at the province
 with the highest spread (in terms of standard deviation) of horse populations. 
 We present the standard deviations in Table 1.
 
-Table 1. Standard deviation of historical (1906-1972) horse populations for each Canadian province.
-
 ```{python}
+#| label: tbl-horse-sd
+#| tbl-cap: "Standard deviation of historical (1906–1972) horse populations for each Canadian province."
+
 horses_sd_table = pd.read_csv("../results/horses_sd.csv")
 largest_sd = horses_sd_table['Province'].values[0]
-Markdown(horses_sd_table.to_markdown(index = False))
+Markdown(horses_sd_table.to_markdown(index=False))
 ```
 
 Note that we define standard deviation (of a sample) as
