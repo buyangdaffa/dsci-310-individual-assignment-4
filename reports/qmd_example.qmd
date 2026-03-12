@@ -68,7 +68,7 @@ of the number of horses during the same time span as @fig-horse-pops.
 
 ![Horse populations for the province with the largest standard deviation.](../results/horse_pops_plot_largest_sd.png){#fig-largest-sd out-width="65%"}
 
-In @fig-largest-sd we zoom in and look at the province of ???, which had the largest spread of values in terms of standard deviation.
+In @fig-largest-sd we zoom in and look at the province of `{{largest_sd}}`, which had the largest spread of values in terms of standard deviation.
 
 # References
 
