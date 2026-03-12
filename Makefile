@@ -7,8 +7,6 @@ all: results/horse_pop_plot_largest_sd.png \
 	reports/qmd_example.html \
 	reports/qmd_example.pdf
 
-
-
 # generate figures and objects for report
 results/horse_pop_plot_largest_sd.png results/horse_pops_plot.png results/horses_spread.csv: source/generate_figures.py
 	python source/generate_figures.py --input_dir="data/00030067-eng.csv" \
@@ -21,9 +19,16 @@ reports/qmd_example.html: results reports/qmd_example.qmd
 reports/qmd_example.pdf: results reports/qmd_example.qmd
 	quarto render reports/qmd_example.qmd --to pdf
 
+# GitHub Pages build
+docs: results reports/qmd_example.qmd
+	mkdir -p docs/reports
+	cp -r results docs/
+	quarto render reports/qmd_example.qmd --to html --output-dir docs/reports
+
 # clean
 clean:
 	rm -rf results
 	rm -rf reports/qmd_example.html \
 		reports/qmd_example.pdf \
 		reports/qmd_example_files
+	rm -rf docs
