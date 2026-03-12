@@ -19,6 +19,13 @@ reports/qmd_example.html: results/horse_pops_plot_largest_sd.png results/horse_p
 reports/qmd_example.pdf: results/horse_pops_plot_largest_sd.png results/horse_pops_plot.png results/horses_sd.csv reports/qmd_example.qmd
 	quarto render reports/qmd_example.qmd --to pdf
 
+# optional: build GitHub Pages site
+docs: results/horse_pops_plot_largest_sd.png results/horse_pops_plot.png results/horses_sd.csv reports/qmd_example.qmd
+	mkdir -p docs
+	cd reports && quarto render qmd_example.qmd --to html --output-dir ../docs
+	cp -r results docs/
+	touch docs/.nojekyll
+
 # clean
 clean:
 	rm -rf results
